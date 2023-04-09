@@ -158,6 +158,7 @@ function getLegacyIndySdkModules() {
         new V1ProofProtocol({
           indyProofFormat: legacyIndyProofFormatService,
         }),
+        //@ts-ignore
         new V2ProofProtocol({
           proofFormats: [legacyIndyProofFormatService],
         }),
