@@ -10,6 +10,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "alice": "ts-node src/AliceInquirer.ts",
+    "deneme": "ts-node src/deneme.ts",
     "faber": "ts-node src/FaberInquirer.ts",
     "refresh": "rm -rf ./node_modules ./yarn.lock && yarn"
   },
