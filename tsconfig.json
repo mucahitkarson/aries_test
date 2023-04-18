@@ -9,9 +9,9 @@
     "baseUrl": ".",
     "noImplicitAny": false,
 
-    "paths": {
-      "@aries-framework/*": ["packages/*/src"]
-    },
+//    "paths": {
+//      "@aries-framework/*": ["packages/*/src"]
+//    },
     "types": ["jest", "node"]
   },
   "exclude": ["node_modules", "**/build/**"]

@@ -1,13 +1,15 @@
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-apt-get install -y nodejs
-npm install --global yarn
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-sudo apt-get update && apt-get install -y software-properties-common apt-transport-https libsodium-dev libzmq3-dev pkg-config libssl-dev build-essential
-git clone https://github.com/hyperledger/indy-sdk
-cd indy-sdk/libindy
-cargo update && cargo build --release
-sudo mv target/release/libindy.so /usr/lib/libindy.so
-npx -p @aries-framework/node is-indy-installed
+curl -fsSL https://deb.nodesource.com/setup_18.x | bash -   
+apt-get install -y nodejs   
+npm install --global yarn   
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh   
+sudo apt-get update && sudo apt-get install -y software-properties-common apt-transport-https libsodium-dev libzmq3-dev pkg-config libssl-dev build-essential   
+git clone https://github.com/hyperledger/indy-sdk   
+cd indy-sdk/libindy   
+cargo update && cargo build --release   
+sudo mv target/release/libindy.so /usr/lib/libindy.so   
+npx -p @aries-framework/node is-indy-installed   
+
+#   --------------------------------------   
 
 ###POSTGRESQL
 # Get postgres docker image
@@ -35,3 +37,14 @@ docker exec indy-pool add-did-from-seed 000000000000000000000000Trustee9 TRUSTEE
 # If you want to register using the DID/Verkey you can use
 # docker exec indy-pool add-did "NkGXDEPgpFGjQKMYmz6SyF" "CrSA1WbYYWLJoHm16Xw1VEeWxFvXtWjtsfEzMsjB5vDT"
 
+#   --------------------------------------   
+
+
+npx -p @aries-framework/rest afj-rest start \
+--label "AFJ Rest" \
+--wallet-id "walletId" \
+--wallet-key "walletKey" \
+--endpoint http://localhost:5000 \
+--admin-port 3000 \
+--outbound-transport http \
+--inbound-transport http 5000
