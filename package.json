@@ -9,6 +9,7 @@
   },
   "license": "Apache-2.0",
   "scripts": {
+    "sample": "ts-node src/index.ts",
     "alice": "ts-node src/AliceInquirer.ts",
     "deneme": "ts-node src/deneme.ts",
     "deneme2": "ts-node src/deneme2.ts",
@@ -19,7 +20,8 @@
     "@hyperledger/anoncreds-nodejs": "^0.1.0-dev.14",
     "@hyperledger/aries-askar-nodejs": "^0.1.0-dev.8",
     "@hyperledger/indy-vdr-nodejs": "0.1.0-dev.13",
-    "inquirer": "^8.2.5"
+    "inquirer": "^8.2.5",
+    "qrcode": "^1.5.1",
   },
   "devDependencies": {
     "@aries-framework/anoncreds": "0.4.0-alpha.111",
