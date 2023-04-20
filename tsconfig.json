@@ -1,18 +1,20 @@
 {
-  "extends": "./tsconfig.build.json",
-//  "ts-node": {
-//    "require": ["tsconfig-paths/register"],
-//    "files": true,
-//
-//  },
   "compilerOptions": {
-    "baseUrl": ".",
-    "noImplicitAny": false,
-
-//    "paths": {
-//      "@aries-framework/*": ["packages/*/src"]
-//    },
-    "types": ["jest", "node"]
+    "module": "commonjs",
+    "target": "ES2017",
+    "declaration": true,
+    "sourceMap": true,
+    "strict": true,
+    "noEmitOnError": true,
+    "lib": [],
+    "types": ["jest", "node"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    // TODO: we should update code to assume errors are of type 'unknown'
+    "useUnknownInCatchVariables": false
   },
-  "exclude": ["node_modules", "**/build/**"]
+  "exclude": ["node_modules", "build", "**/*.test.ts", "**/__tests__/*.ts", "**/__mocks__/*.ts", "**/build/**"]
 }

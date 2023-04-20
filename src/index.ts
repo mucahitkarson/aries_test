@@ -4,7 +4,7 @@ import {Agent, ConnectionEventTypes, ConnectionStateChangedEvent} from "@aries-f
 
 const run = async () => {
     const agent = await getAgent()
-    const schema = await agent.ledger.registerSchema({attributes: ['name', 'age'], name: 'Identity17', version: '1.0'})
+    const schema = await agent.ledger.registerSchema({attributes: ['name', 'age'], name: 'Identity19', version: '1.0'})
     const credentialDefinition = await agent.ledger.registerCredentialDefinition({
         schema,
         supportRevocation: false,
@@ -14,7 +14,8 @@ const run = async () => {
     // const {outOfBandRecord,invitation} = await agent.oob.createLegacyInvitation()
     const url = outOfBandRecord.outOfBandInvitation.toUrl({domain: 'https://example.org'})
 
-    QRCode.toString(url, {height: 1020}, function (err, base64image) {
+    // @ts-ignore
+    QRCode.toString(url, { height: 1020}, function (err, base64image) {
         console.log(base64image)
     })
 
