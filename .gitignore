@@ -1,3 +1,4 @@
 node_modules
-/*/action-menu/node_modules/
+/package-lock.json
 .idea
+/yarn.lock

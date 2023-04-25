@@ -1,5 +1,0 @@
-export { IndyVdrIndyDidRegistrar, IndyVdrIndyDidResolver, IndyVdrSovDidResolver } from './dids'
-export { IndyVdrPoolConfig } from './pool'
-export * from './IndyVdrModule'
-export * from './IndyVdrModuleConfig'
-export * from './anoncreds'
