@@ -6,7 +6,6 @@ RUN apt-get update -y && apt-get install -y \
     software-properties-common \
     apt-transport-https \
     curl \
-    # Only needed to build indy-sdk
     build-essential \
     git \
     libzmq3-dev libsodium-dev pkg-config libssl-dev
@@ -49,11 +48,11 @@ ENV LIB_INDY_STRG_POSTGRES="/indy-sdk/experimental/plugins/postgres_storage/targ
 FROM base as final
 
 # AFJ specifc setup
-#WORKDIR /www
-#ENV RUN_MODE="docker"
-#
-## Copy dependencies
-#COPY . .
-#
-#RUN yarn install
-#RUN yarn build
+WORKDIR /www
+ENV RUN_MODE="docker"
+
+# Copy dependencies
+COPY . .
+
+RUN yarn install
+RUN yarn demo1
