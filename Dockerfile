@@ -36,7 +36,7 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 RUN rustup default 1.63.0
 
 # clone indy-sdk and build postgres plugin
-RUN git clone https://github.com/hyperledger/indy-sdk.git
+RUN git clone --depth 1 https://github.com/hyperledger/indy-sdk.git
 
 # libindy.so file
 WORKDIR /indy-sdk/libindy

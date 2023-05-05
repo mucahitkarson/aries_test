@@ -80,3 +80,16 @@ OR
 ```bash
 yarn demo2
 ```
+
+# Setup via Docker
+
+### build image
+
+```bash   
+docker build --no-cache -t aries:test .
+```
+
+### run container
+```bash
+docker run --rm -it aries:test yarn demo1
+```
