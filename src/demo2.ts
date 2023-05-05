@@ -37,7 +37,7 @@ const getGenesisTransaction = async (url: string) => {
 };
 
 const initializeHolderAgent = async () => {
-    const genesisTransactionsBCovrinTestNet = await getGenesisTransaction("http://0.0.0.0:9000/local-genesis.txn");
+    const genesisTransactionsBCovrinTestNet = await getGenesisTransaction("http://test.bcovrin.vonx.io/genesis");
     // Simple agent configuration. This sets some basic fields like the wallet
     // configuration and the label. It also sets the mediator invitation url,
     // because this is most likely required in a mobile environment.
@@ -80,7 +80,7 @@ const initializeHolderAgent = async () => {
 };
 
 const initializeIssuerAgent = async () => {
-    const genesisTransactionsBCovrinTestNet = await getGenesisTransaction("http://0.0.0.0:9000/local-genesis.txn");
+    const genesisTransactionsBCovrinTestNet = await getGenesisTransaction("http://test.bcovrin.vonx.io/genesis");
     // Simple agent configuration. This sets some basic fields like the wallet
     // configuration and the label.
     const config: InitConfig = {

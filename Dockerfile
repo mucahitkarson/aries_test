@@ -61,5 +61,3 @@ ENV RUN_MODE="docker"
 COPY . .
 
 RUN yarn install
-
-#RUN yarn demo1
