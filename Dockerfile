@@ -10,9 +10,9 @@ RUN apt-get update -y && apt-get install -y \
     git \
     libzmq3-dev libsodium-dev pkg-config libssl-dev
 
-# libindy
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CE7709D068DB5E88
-RUN add-apt-repository "deb https://repo.sovrin.org/sdk/deb bionic stable"
+## libindy
+#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CE7709D068DB5E88
+#RUN add-apt-repository "deb https://repo.sovrin.org/sdk/deb bionic stable"
 
 # nodejs 16x LTS Debian
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
@@ -22,9 +22,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 # install depdencies
-RUN apt-get update -y && apt-get install -y --allow-unauthenticated \
-    libindy \
-    nodejs
+RUN apt-get update -y && apt-get install -y --allow-unauthenticated  nodejs
 
 # Install yarn seperately due to `no-install-recommends` to skip nodejs install
 RUN apt-get install -y --no-install-recommends yarn
@@ -39,6 +37,14 @@ RUN rustup default 1.63.0
 
 # clone indy-sdk and build postgres plugin
 RUN git clone https://github.com/hyperledger/indy-sdk.git
+
+# libindy.so file
+WORKDIR /indy-sdk/libindy
+RUN cargo update && cargo build --release
+
+# move so file to /usr/lib/
+RUN mv /indy-sdk/libindy/target/release/libindy.so /usr/lib/libindy.so
+
 WORKDIR /indy-sdk/experimental/plugins/postgres_storage/
 RUN cargo build --release
 
@@ -55,4 +61,5 @@ ENV RUN_MODE="docker"
 COPY . .
 
 RUN yarn install
-RUN yarn demo1
+
+#RUN yarn demo1
